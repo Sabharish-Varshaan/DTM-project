@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text to Sign Language Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(243, 200, 219); /* Set background color */
+            color: rgb(27, 30, 30); /* Set text color */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .container {
+            padding: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        .images-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between images */
+        }
+        img {
+            width: 100px; /* Set image width */
+            height: auto;
+            margin: 5px; /* Space around each image */
+        }
+        input[type="text"], input[type="submit"] {
+            border: 1px solid rgb(74, 10, 10); /* Set border color */
+            background-color: rgb(250, 241, 241); /* Set background color */
+            color: rgb(91, 44, 44); /* Set text color */
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            border-width: 3px;
+        }
+        input[type="submit"] {
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        input[type="submit"]:hover {
+            background-color: rgb(124, 17, 58); /* Change background color on hover */
+            color: black; /* Change text color on hover */
+        }
+        h1 {
+            color: rgb(48, 37, 37);
+        }
+        .para1 {
+            height: 160px;
+            width: 410px;
+            background-color: rgb(247, 227, 236);
+            border: 5px solid black;
+            margin-top: 50px;
+            display: inline-block;
+            border-radius: 10px;
+            font-family: space;
+        }
+        .para2 {
+            height: 150px;
+            width: 410px;
+            background-color: rgb(247, 227, 236);
+            border: 5px solid black;
+            margin-top: 0px;
+            display: inline-block;
+            border-radius: 10px;
+            margin-left: 200px;
+            font-family: space;
+            margin-bottom: 50px;
+        }
+        .para3 {
+            text-align: left;
+            margin-left: 360px;
+            margin-right: 360px;
+        }
+        #the_text {
+            height: 100px;
+            width: 800px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEXT TO SIGN LANGUAGE CONVERTER</h1>
+        <form method="post">
+            <input type="text" name="text" placeholder="Enter text here" required>
+            <input type="submit" value="Convert">
+        </form>
+        <div class="images-container">
+            {% for image in images %}
+                <img src="{{ url_for('static', filename=image) }}" alt="Sign Language Image">
+            {% endfor %}
+        </div>
+        <div class="para1">
+            <p>Sign language is a visual language that uses gestures,
+                facial expressions, and body language to convey meaning.
+                Each sign language has its own unique grammar and vocabulary.
+                For example, American Sign Language (ASL) is widely used in the United States and Canada.
+                It is essential to recognize that sign languages are not simply a manual representation of spoken languages;
+                they have their own syntax and structure.
+            </p>
+        </div>
+        <div class="para2">
+            <p>
+                Our mission is to bridge the communication gap between
+                hearing and non-hearing individuals through innovative technology.
+                This project focuses on translating written text into sign language,
+                making communication more accessible for everyone. Explore our website
+                to learn more about our goals, technology,
+                and the impact we aim to achieve.
+            </p>
+        </div>
+    </div>
+    <h2>About the Project</h2>
+    <div class="para3">
+        <p id="the_text" style="font-weight: bold;">
+            The Text to Hand Sign project is dedicated to developing systems that convert written text into sign language.
+            By utilizing advanced technologies, we aim to empower individuals who are deaf or hard of hearing,
+            enhancing their ability to communicate effectively in various settings.
+        </p>
+        <p style="font-weight: bold;">Accessibility:</p>
+        <p style="font-family: space;">Our project promotes inclusivity by providing tools that help individuals with hearing impairments engage with the world around them.</p>
+        <p style="font-weight: bold;">Education:</p>
+        <p style="font-family: space;">We strive to create educational resources that facilitate the learning of sign language, benefiting both deaf and hearing individuals.</p>
+        <p style="font-weight: bold;">Community Impact:</p>
+        <p style="font-family: space;">By fostering better communication, we aim to strengthen relationships and understanding between diverse communities.</p>
+    </div>
+</body>
+</html>
