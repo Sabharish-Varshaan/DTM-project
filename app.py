@@ -42,12 +42,9 @@ def text_to_sign_language(text):
 def home():
     images = []
     if request.method == 'POST':
-        text = request.form['text']
+        text = request.form['textInput']
         images = text_to_sign_language(text)
-    print("Rendering template now")  # Add this line
     return render_template('index.html', images=images)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
-
