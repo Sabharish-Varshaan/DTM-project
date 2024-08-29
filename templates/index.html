@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text to Hand Sign Converter</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
@@ -22,7 +20,6 @@
             max-width: 1200px;
         }
 
-        /* Header */
         header {
             position: relative;
             height: 100vh;
@@ -83,7 +80,6 @@
             pointer-events: none;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -95,7 +91,6 @@
             }
         }
 
-        /* Sections */
         main section {
             padding: 80px 0;
             text-align: center;
@@ -123,7 +118,7 @@
         }
 
         .converter {
-            background-color: #1e1e1e;
+            background-color: #1e1e1e; /* Background color for the converter box */
             padding: 60px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -163,7 +158,25 @@
             background-color: #008bb7;
         }
 
-        /* Team Section */
+        /* Image Container for Transparent Images */
+        .image-container {
+            background-color: #1e1e1e; /* Matches the color of the .converter box */
+            padding: 10px;
+            display: inline-block;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        .image-container img {
+            width: 175px;
+            height: 175px;
+            object-fit: contain;
+            display: block;
+            background-color: transparent; /* Ensure the image itself is transparent */
+
+            
+        }
+
         .team {
             background: linear-gradient(135deg, #3A6073 0%, #16222A 100%);
             padding: 60px;
@@ -189,7 +202,6 @@
             line-height: 1.5;
         }
 
-        /* Footer */
         footer {
             background-color: #111;
             color: #777;
@@ -235,14 +247,16 @@
         <section id="converter" class="converter">
             <div class="container">
                 <h2>Convert Your Text</h2>
-                <form method="POST" action="/">
+                <form method="POST" action="#output">
                     <textarea id="textInput" name="textInput" placeholder="Enter your text here..."></textarea>
                     <button type="submit">Convert</button>
                 </form>
                 <div id="output">
                     {% if images %}
                         {% for img in images %}
-                            <img src="{{ url_for('static', filename=img) }}" alt="{{ img }}">
+                            <div class="image-container">
+                                <img src="{{ url_for('static', filename=img) }}" alt="{{ img }}">
+                            </div>
                         {% endfor %}
                     {% endif %}
                 </div>
@@ -253,10 +267,10 @@
             <div class="container">
                 <h2>Team Members</h2>
                 <ul class="team-list">
-                    <li><strong>Harish:</strong> harish@example.com</li>
-                    <li><strong>Sabharish:</strong> sabharish@example.com</li>
-                    <li><strong>Vishwanathan:</strong> vishwanathan@example.com</li>
-                    <li><strong>Mahalakshmi:</strong> mahalakshmi@example.com</li>
+                    <li><strong>Harish.L:</strong> harishloghu@gmail.com</li>
+                    <li><strong>Sabharish Varshaan.S:</strong> sabharishvarshaans@gmail.com</li>
+                    <li><strong>S.Viswanathan:</strong> Sviswa2005@gmail.com</li>
+                    <li><strong>V.Mahalakshmi:</strong> vedagirimahalakshmi@gmail.com</li>
                 </ul>
             </div>
         </section>
