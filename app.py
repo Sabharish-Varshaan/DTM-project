@@ -1,3 +1,6 @@
+from flask import Flask
+app = Flask(__name__)
+
 def text_to_sign_language(text):
     # Dictionary mapping letters to image filenames
     sign_language_dict = {
