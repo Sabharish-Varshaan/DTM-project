@@ -1,8 +1,3 @@
-from flask import Flask, request, render_template
-
-app = Flask(__name__)
-
-# Function to convert text to sign language images
 def text_to_sign_language(text):
     # Dictionary mapping letters to image filenames
     sign_language_dict = {
@@ -32,19 +27,20 @@ def text_to_sign_language(text):
         'x': 'x.png',
         'y': 'y.png',
         'z': 'z.png',
-        ' ': 'space.png'  # Image for space
+        ' ': 'space.png',  # Image for space
+        'when': 'when.png',
     }
-    # Convert text to list of images
-    images = [sign_language_dict.get(char.lower(), 'unknown.png') for char in text]
-    return images
-
-@app.route('/', methods=['GET', 'POST'])
-def home():
+    
+    # Split the input text into words
+    words = text.split()
     images = []
-    if request.method == 'POST':
-        text = request.form['textInput']
-        images = text_to_sign_language(text)
-    return render_template('index.html', images=images)
+    
+    for word in words:
+        if word in sign_language_dict:
+            images.append(sign_language_dict[word])
+        else:
+            for char in word:
+                images.append(sign_language_dict.get(char.lower(), 'unknown.png'))
+            images.append(sign_language_dict[' '])  # Add space after each word
 
-if __name__ == "__main__":
-    app.run(debug=True)
+    return images

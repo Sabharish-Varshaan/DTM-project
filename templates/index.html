@@ -118,7 +118,7 @@
         }
 
         .converter {
-            background-color: #1e1e1e; /* Background color for the converter box */
+            background-color: #1e1e1e; 
             padding: 60px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -141,6 +141,7 @@
             background-color: #292929;
             color: #fff;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            resize: none;
         }
 
         button {
@@ -158,9 +159,8 @@
             background-color: #008bb7;
         }
 
-        /* Image Container for Transparent Images */
         .image-container {
-            background-color: #1e1e1e; /* Matches the color of the .converter box */
+            background-color: #1e1e1e; 
             padding: 10px;
             display: inline-block;
             border-radius: 10px;
@@ -172,9 +172,6 @@
             height: 175px;
             object-fit: contain;
             display: block;
-            background-color: transparent; /* Ensure the image itself is transparent */
-
-            
         }
 
         .team {
@@ -248,7 +245,7 @@
             <div class="container">
                 <h2>Convert Your Text</h2>
                 <form method="POST" action="#output">
-                    <textarea id="textInput" name="textInput" placeholder="Enter your text here..."></textarea>
+                    <textarea id="textInput" name="textInput" placeholder="Enter your text here..." required></textarea>
                     <button type="submit">Convert</button>
                 </form>
                 <div id="output">
@@ -258,6 +255,8 @@
                                 <img src="{{ url_for('static', filename=img) }}" alt="{{ img }}">
                             </div>
                         {% endfor %}
+                    {% else %}
+                        <p>No images to display. Please enter text and convert!</p>
                     {% endif %}
                 </div>
             </div>
