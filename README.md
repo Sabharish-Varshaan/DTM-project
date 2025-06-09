@@ -1,4 +1,4 @@
-# DTM Project - Text to Hand Sign Converter
+# Text to Hand Sign Converter
 
 ## Overview
 The Text to Hand Sign Converter is a web application designed to facilitate communication between the hearing and deaf communities by converting text input into corresponding sign language images. This project utilizes Flask as the web framework and provides a user-friendly interface for real-time text conversion.
